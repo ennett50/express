@@ -1,0 +1,470 @@
+extends layout
+block content
+	if (!baseUrl)
+		p
+			a(href="/") На главную
+	div#fixed-grid.items-list
+		h2 Фиксированная сетка
+		p Параметры для создания сетки следующие:
+		ul
+			li 12 колонок
+			li ширина колонки 70px
+			li расстояние между колонками 30px
+			li ширина основного контента 1170px
+
+		p Есть уже готовый паттерн для фотошопа: <a href="images/18-30-70-0-photoshop.pab"
+			|target="_blank"><b>Скачать</b></a>
+		p Сгенирировать сетку с нужными параметрами можно здесь <a href="http://modulargrid.org/#app" target="_blank">http://modulargrid.org/#app</a>
+		p Данная сетка сделана на основе <a href="http://www.oneskyapp.com/ru/docs/bootstrap/css/#grid"
+			|target="_blank">bootstrap.ru</a>
+
+
+	hr
+	div#ui.items-list
+		h2 UI/UX
+		p Все мы помним, что нужно придерживаться этих принципов. Это важно. По этому поводу много информации в интернете.
+		p Сюда хотелось бы добавить пару ссылок на книги:
+		ol
+			li
+				a(href="http://www.ozon.ru/context/detail/id/15708347/" target="_blank") Сначала мобильные!
+				| &nbsp;Люк Вроблевски
+				p
+					a(href="images/ljuk-vroblevski-snachala-mobilnye-4-2012.pdf" target="_blank") <b>pdf</b>
+
+			li
+				a(href="http://www.ozon.ru/context/detail/id/8747299/" target="_blank") Отзывчивый веб-дизайн
+				| &nbsp;Итан Маркотт
+				p
+					a(href="images/Итан Маркотт - Отзывчивый веб-дизайн  - 2012.pdf" target="_blank") <b>pdf</b>
+
+		p
+			b Важно учитывать макет под различные входные данные.
+			| Например, если это галерея с картинками, помним о стрелках "Вперед" и "Назад". Если это список чего-то,
+			| продумывем, как будет выглядит при малом/большом кол-ве данных и так далее.
+
+
+	hr
+	div#text.items-list
+		h2 Шрифты
+
+		p Конечно, лучше всего использовать стандартные шрифты.
+		p В первую очередь, если искать нестандартный шриффт, идем на <a href="https://www.google.com/fonts"
+			|target="_blank">www.google.com/fonts</a>
+
+		p Если все таки, жизнь - боль, то выбираем шрифты на свое усмотрение и предоставляем с psd макетами все шрифты.
+
+		p <b>Помним!!!</b> Что использование нестандартных шрифтов внлияет на загрузку страницы!
+			|<br/> Также все шрифты по разному в разных версиях браузера отображаются. Это зависит от того, как их
+			|обрабатывают и от нас не зависит.
+
+		p Если вы используете нестандартный шрифт, то вот дополнения к нему:
+		ul
+			li <b>TTF или OTF</b> — привычный нам файл шрифта, но подгружаемый с сервера на время просмотра сайта;
+			li <b>WOFF</b> — незащищенный архив исходника OTF или TTF, пожалуй, самый важный формат, который поддерживают большинство популярных браузеров, а файлы в WOFF обычно 2–2,5 раза легче, чем исходные;
+			li <b>EOT</b> — внедряемый TT OpenType архив, имеющий механизмы защиты, нужен для поддержки старых браузеров
+				|Internet Explorer (начиная с IE8 кроме TrueType кривых);
+			li <b>SVG</b> — для поддержки браузера Safari.
+
+		hr
+
+		h2 Заголовки (h1-h6)
+		p Все наши сайты в основном продвигаются. Важно правильно использовать заголовки на странице.
+		ol
+			li <b>Тег H1 должен использоваться только один раз.</b> То есть он должен выделяться по размерам и быть
+			| всегда первым на странице. Желательно, чтобы на каждой странице был h1 заголовок.
+			li Заголовик другого уровня могут употребляться несколько раз.
+
+		p Все заголовки должны быть как бы вложены друг в друга:
+		p
+			img(src="images/razmetka.gif" alt="")
+		p <b>Также визуально все тэги тоже должны повторять эту вложенность</b> (не может быть такого, что h2 такой же
+			|как и h4 или h5 больше чем h2):
+		div.jumbotron
+			div.container
+				h1 h1. Заголовок Bootstrap
+				h2 h2. Заголовок Bootstrap
+				h3 h3. Заголовок Bootstrap
+				h4 h4. Заголовок Bootstrap
+				h5 h5. Заголовок Bootstrap
+				h6 h6. Заголовок Bootstrap
+
+		hr
+		h2 Оформление текста
+		p <b>Пожелание:</b> хотелось бы, чтобы шрифт на текстовых страницах был основным (цвет, размер, межстрочный
+			|интервал). Зачем это нужно? Например, на странице Каталога есть текст. По умолчанию текст основного сайта у
+			|нас черный, а описание каталога - серым. Хотелось бы, чтобы он был идентичным, чтобы не плодить шаблоны
+			|программисту и не обвешивать дополнительными классами.
+		p По умолчанию <b>упорядочные списки</b> выглядят так:
+		ul
+			li Lorem ipsum dolor sit amet
+			li Consectetur adipiscing elit
+			li Integer molestie lorem at massa
+			li Facilisis in pretium nisl aliquet
+			li Nulla volutpat aliquam velit
+		p По умолчанию <b>нумерованные списки</b> выглядят так:
+		ol
+			li Lorem ipsum dolor sit amet
+			li Consectetur adipiscing elit
+			li Integer molestie lorem at massa
+			li Facilisis in pretium nisl aliquet
+			li Nulla volutpat aliquam velit
+
+		p Также помним, что у нас есть <b>таблица</b>. Подробнее о видах таблице можно посмотреть <a href=""
+			|target="_blank">здесь</a>. По умолчанию она выглядит так:
+		table.table
+			tr
+				th #
+				th Имя
+				th Фамилия
+				th Имя пользователя
+			tr
+				td 1
+				td Марк
+				td Отто
+				td @mdo
+			tr
+				td 2
+				td Джейкоб
+				td Торнтон
+				td @fat
+			tr
+				td 3
+				td Ларри
+				td Птица
+				td @twitter
+
+	hr
+	div#forms.items-list
+		h2 Элементы формы
+		p Стоит помнить о всех элементах формы. Также по стилизации они должны быть одинаковыми, то есть, напрмиер,
+			|border checkbox`а у нас серый, а border radio тоже должен быть серым, а не другим цветом. Все одинаково
+		p <b>Вид формы по умолчанию</b>:
+		form.form-horizontal
+			.form-group.has-error
+				label.col-sm-2.control-label(for='inputName3') Name
+				.col-sm-10
+					input#inputName3.form-control(type='email', placeholder='Name')
+
+
+			.form-group.has-success
+				label.col-sm-2.control-label(for='inputEmail3') Email
+				.col-sm-10
+					input#inputEmail3.form-control(type='email', placeholder='Email')
+
+			.form-group
+				label.col-sm-2.control-label(for='inputPassword3') Password
+				.col-sm-10
+					input#inputPassword3.form-control(type='password', placeholder='Password')
+
+			.form-group
+				label.col-sm-2.control-label(for='select1') Select
+				.col-sm-10
+					select.form-control#select1
+						option
+						option Lorem ipsum dolor sit amet
+						option Consectetur adipiscing elit
+						option Nulla volutpat aliquam velit
+			.form-group
+				label.col-sm-2.control-label(for='textarea1') Message
+				.col-sm-10
+					textarea.form-control#textarea1
+			.form-group
+				label.col-sm-2.control-label Checkbox
+				.col-sm-10
+					.checkbox
+						label
+							input(type='checkbox', value='')
+							|     Option one is this and that—be sure to include why it's great
+					.checkbox.disabled
+						label
+							input(type='checkbox', value='', disabled='')
+							|     Option two is disabled
+			.form-group
+				label.col-sm-2.control-label Radio
+				.col-sm-10
+					.radio.has-error
+						label
+							input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+							|     Option one is this and that—be sure to include why it's great
+					.radio
+						label
+							input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+							|     Option two can be something else and selecting it will deselect option one
+					.radio.disabled
+						label
+							input#optionsRadios3(type='radio', name='optionsRadios', value='option3', disabled='')
+							|     Option three is disabled
+
+			.form-group
+				.col-sm-offset-2.col-sm-10
+					div.alert.alert-danger Что-то пошло не так...
+					br
+					button.btn.btn-primary(type='submit') Sign in
+
+
+	hr
+	div#psd.items-list
+		h2 Требования к макетам дизайнера
+		p Все слои в рамках макета должны быть структурированы по папкам. В одну папку должны включаться только те слои, которые образуют конкретную форму, объект или связанную группу объектов.
+		p Дизайнер должен стараться, где это можно, избегать использования прозрачности при разработке макетов. Особенно это касается случаев, когда прозрачностью определяется цвет текста!
+		p В рамках проекта среди всех остальных макетов, должны присутствовать иконка <b>(favicon.ico)</b>.
+		p Помни про служебные старницы:
+		ol
+			li Карта сайта;
+			li Версия для печати;
+			li Результаты поиска;
+			li Страница 404.
+
+	hr
+	div#adaptive.items-list
+		h2 Адаптивные макеты
+		h3 Видоизменения в сетке
+		p Для показа конкретных состояний на разрешения стоит использовать значения из таблицы.
+		table.table.table-bordered.table-striped
+			thead
+				tr
+					th
+					th(data-replace-tmp-key='c79900cf5b534530d28544224419e490')
+						os-p(key='c79900cf5b534530d28544224419e490')
+							| Extra small devices
+							small Phones (<768px)
+					th(data-replace-tmp-key='f9e802aa15b9718fc930b9cc1656668b')
+						os-p(key='f9e802aa15b9718fc930b9cc1656668b')
+							| Маленькие устройства
+							small Планшеты (≥768px)
+					th(data-replace-tmp-key='59e3ab30b24d19d82bfe1bae0ac986d7')
+						os-p(key='59e3ab30b24d19d82bfe1bae0ac986d7')
+							| Средние устройства
+							small Компьютеры (≥992px)
+					th(data-replace-tmp-key='ca447528128c59fc1eea21c07017df16')
+						os-p(key='ca447528128c59fc1eea21c07017df16')
+							| Большие устройства
+							small Компьютеры (≥1200px)
+			tbody
+				tr
+					th.text-nowrap(scope='row', data-replace-tmp-key='d091d8d55a8e3d46c26ae21bcdce755f')
+						os-p(key='d091d8d55a8e3d46c26ae21bcdce755f') Работа сетки
+					td(data-replace-tmp-key='29de1b1ebdaa80818ac5cfa319f28bed')
+						os-p(key='29de1b1ebdaa80818ac5cfa319f28bed') Всегда горизонтальная
+					td(colspan='3', data-replace-tmp-key='bf55717402ad086b8073b83d4491d105')
+						os-p(key='bf55717402ad086b8073b83d4491d105') Сначала сжатая, горизонтальная над контрольной точкой
+				tr
+					th.text-nowrap(scope='row', data-replace-tmp-key='d6f186ec9937b075b1d0fd8a435f1778')
+						os-p(key='d6f186ec9937b075b1d0fd8a435f1778') Ширина контейнера
+					td(data-replace-tmp-key='bff1b52aa792b3ccdfce1dad75e3e7cf')
+						os-p(key='bff1b52aa792b3ccdfce1dad75e3e7cf') Нет (авто)
+					td 750px
+					td 970px
+					td 1170px
+
+		h3 Пример сетки на разрешенияз ≥1200px
+		ul
+			li ширина фиксированная 1170px
+			li ширина одной колонки 70px
+			li расстояние между колонками 30px
+		br
+		div.row
+			-for (var i=0;i<12;i++)
+			div.col-lg-1
+				div(style="background: #eee;text-align: center;line-height: 150px;") 70px
+		p Сгенирировать сетку с нужными параметрами можно здесь <a href="http://modulargrid.org/#app" target="_blank">http://modulargrid.org/#app</a>
+		h3 Пример сетки на разрешенияз ≥992px
+		ul
+			li ширина фиксированная 992px
+			li ширина одной колонки примерно 55px
+			li расстояние между колонками 30px
+		div(style="width: 992px;margin: 0 auto;")
+			div.row
+				-for (var j=0;j<12;j++)
+				div.col-md-1
+					div(style="background: #eee;text-align: center;line-height: 150px;") 55px
+
+		p Сгенирировать сетку с нужными параметрами можно здесь <a href="http://modulargrid.org/#app" target="_blank">http://modulargrid.org/#app</a>
+
+		h3 Пример сетки на разрешенияз ≥768px
+		ul
+			li ширина фиксированная 768px
+			li ширина одной колонки примерно 36px
+			li расстояние между колонками 30px
+		div(style="width: 768px;margin: 0 auto;")
+			div.row
+				-for (var k=0;k<12;k++)
+				div.col-sm-1
+					div(style="background: #eee;text-align: center;line-height: 150px;") 36px
+		p Сгенирировать сетку с нужными параметрами можно здесь <a href="http://modulargrid.org/#app" target="_blank">http://modulargrid.org/#app</a>
+
+
+		h3 Как размещать элементы и какие преобразования элементов допустимы
+		ul
+			li Блоки и отдельные элементы в блоках могут <b>появляться и исчезать</b>.
+			li Блоки и отдельные элементы в блоках могут <b>менять оформление (цвета, фоны, размеры отступов, наличие пиктограмм)</b>.
+			li Блоки и отдельные элементы в блоках могут <b>превращаться из блочных в строчные и обратно</b>;
+			li Размер шрифта основного текста меняться не должен, так как устройства всех размеров имеют более или менее одинаковое виртуальное разрешение (например, у iPhone 5 оно составляет 320×568).
+			li Допускается изменение размера шрифта крупных заголовков в тексте.
+			li Помнитть, что большинство современных мобильных девайсов оснащены <b>тачскрином</b>, поэтому необходимо учитывать размер интерактивных элементов интерфейса;
+			li Возможности <b class="h4">по изменению порядка следования элементов в верстке сильно ограничены, лучше
+				|избегать этого</b>. Все меняется блочными колонками, друг под друга. Телепортировать элементы из правого
+				|угла в левый верхний не уместно.
+
+		br
+		h4 Примеры уместных телепортаций:
+
+		p Адаптация любых списков, каталогов и т.п.:
+		p
+			img(src="images/example1.jpg" alt="")
+		p Адаптация колонок:
+		p
+			img(src="images/adaptive_article.jpg" alt="")
+		p Адаптация всего макеты:
+		p
+			img(src="images/adaptivnyiy-veb-dizayn.png" alt="")
+
+		h4 Пример адаптивного сайта:
+		p
+			img(src="images/socidea_site1.jpg" alt="")
+
+
+		p Основыне девайсы и из разрешения:
+		p
+			img(src="images/devices.png" alt="")
+
+		h3 Что адаптировать/рисовать для верстальщика?
+
+		ol
+			li <b>Header/Footer</b> на всех фиксированных разрешениях
+			li <b>Главную страницу</b> можно ограничится разрешение 768px
+			li <b>Сложные нагруженные кейсы</b>, например, карточка товара, корзина и т.п. можно тоже ограничится
+				|разрешение 768px (если неуверены как лучше адаптировать макет, всегда можно <b>проконсультироваться с верстальщиком</b>)
+			li Все остальное можно соглосовать с верстальщиком, какие конкретно ему варианты еще нужны.
+
+
+	hr
+	div#check-list.items-list
+		h2 Чек-лист проверки верстки
+		ol
+			li
+				<b>Соответствие макету</b>&nbsp;
+				| Погрешность допустима по отображению шрифтов. Поэтому используем ixel Perfect не для попиксельного задротства, а для проверки что все базовые блоки находятся там где надо, их размеры, отступы — соответсвуют макету.
+				p Есть плагин для <a href="https://addons.mozilla.org/ru/firefox/addon/pixel-perfect/" target="_blank">Firefox</a>  и для  <a href="https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?hl=ru" target="_blank">Chrome</a>
+				p
+					img(src="images/unnamed_1.webp" alt="")
+
+
+			li <b>Проверка адаптива верстки</b>
+				p Можно использовать:
+				ul
+					li
+						p В Chrome есть панель разрабочиков для проверки
+						p
+							img(src="images/adaptive1.png" alt="")
+						br
+						br
+					li
+						p Плагин для изменения разрешения для Chrome <a href="https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=ru" target="_blank">Window Resizer</a>
+						p
+							img(src="images/unnamed.webp" alt="")
+						br
+						br
+					li Простой ресайз окна =)
+			li <b>Корректная работа при вбивании реального текста, надёжность вёрстки</b>
+				p  Вёрстка должна тянутся, не разваливаться и не терять дизайнерский вид при изменении контента на странице. Его может быть больше или меньше чем на макете, он может быть обёрнут во всякие <p> из визига и т.п.
+					|Обязательно нужно проверять удаление заголовков!
+
+			li Все ссылки должны как-то реагировать на :hover, :active и :focus — показыванием/убиранием подчёркивания, сменой цвета, чем угодно.
+			li Ссылки на чужие сайты должны быть с target="blank".
+
+
+
+	hr
+	divdiv#vidgets.items-list
+		h2 Виджеты социальный сетей
+
+		p Если нужны иконки типа "<b>Поделиться</b>", можно взять здесь
+			|<a href="http://sapegin.githubio/social-likes/ru/" target="_blank">http://sapegin.github.io/social-likes/ru/</a>
+
+
+		.social-likes
+			.facebook(title='Поделиться ссылкой на Фейсбуке') Facebook
+			.twitter(title='Поделиться ссылкой в Твиттере') Twitter
+			.mailru(title='Поделиться ссылкой в Моём мире') Мой мир
+			.vkontakte(title='Поделиться ссылкой во Вконтакте') Вконтакте
+			.odnoklassniki(title='Поделиться ссылкой в Одноклассниках') Одноклассники
+			.plusone(title='Поделиться ссылкой в Гугл-плюсе') Google+
+			.pinterest(title='Поделиться картинкой на Пинтересте', data-media='') Pinterest
+
+
+		br
+		br
+		br
+		p Если нужен <b>виджет Вконтакте</b>, можно сгенирировать <a href="http://vk.com/dev/Community"
+			|target="_blank">тут</a>
+
+		p Там можно поиграть в настройках, цветах и т.п. Ширина всегда <b>фиксированная!</b>
+		|<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+		div.row
+			div.col-lg-4
+				|<!-- VK Widget -->
+				|<div id="vk_groups"></div>
+				|<script type="text/javascript">
+				|	VK.Widgets.Group("vk_groups", {mode: 0, width: "350", height: "200", color1: 'FFFFFF', color2:'2B587A', color3: '5B7FA6'}, 20003922);
+				|</script>
+
+			div.col-lg-4
+				|<!-- VK Widget -->
+				|<div id="vk_groups-1"></div>
+				|<script type="text/javascript">
+				|VK.Widgets.Group("vk_groups-1", {mode: 2, width: "350", height: "200"}, 20003922);
+				|	</script>
+			div.col-lg-4
+				|<!-- VK Widget -->
+				|<div id="vk_groups-2"></div>
+				|<script type="text/javascript">
+				|VK.Widgets.Group("vk_groups-2", {mode: 1, width: "300", height: "200", color1: 'FFFFFF', color2:'2B587A',color3: '5B7FA6'}, 20003922);
+				|	</script>
+
+		br
+		br
+		br
+		p Если нужен <b>виджет Facebook</b>, можно сгенерировать <a href="https://developers.facebook.com/docs/plugins/page-plugin"
+			|target="_blank">тут</a>
+		p Там можно поиграть в настройках. Ширина всегда <b>фиксированная! Максимальная 500px</b>
+
+		|<div id="fb-root"></div>
+		|<script>(function(d, s, id) {
+		|var js, fjs = d.getElementsByTagName(s)[0];
+		|if (d.getElementById(id)) return;
+		|js = d.createElement(s); js.id = id;
+		|js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4";
+		|fjs.parentNode.insertBefore(js, fjs);
+		|}(document, 'script', 'facebook-jssdk'));</script>
+
+		div.row
+			div.col-lg-6
+				|<div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="350" data-height="300"
+				|data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+				|data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote
+				|cite="https://www.facebook.com/facebook"><a href="https://www.facebook
+				|.com/facebook">Facebook</a></blockquote></div></div>
+			div.col-lg-6
+				|<div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="350" data-height="300"
+				|data-small-header="true" data-adapt-container-width="true" data-hide-cover="true"
+				|data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote
+				|cite="https://www.facebook.com/facebook"><a href="https://www.facebook
+				|.com/facebook">Facebook</a></blockquote></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

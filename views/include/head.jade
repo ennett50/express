@@ -1,0 +1,17 @@
+head
+	|<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	block title
+		title!= ( currentPageTitle && currentPageTitle.length > 0 ? currentPageTitle[currentPageTitle.length - 1] : 'Заголовок страницы' )
+
+	link(rel='stylesheet', type='text/css', href='./css/vendors.css')
+	link(rel='stylesheet', type='text/css', href='./css/production.css')
+
+	//script(src='./scripts/_jquery-1.11.3.min.js', type='text/javascript')
+	|<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+	script(src='./scripts/production.js', type='text/javascript')
+
+	| <!--[if lt IE 9]><script src="./scripts/html5shiv.min.js"></script><![endif]-->
+	|<link rel="stylesheet" href="images/social/social-likes_classic.css">
+	|<script src="images/social/social-likes.min.js"></script>
+
