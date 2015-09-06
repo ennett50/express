@@ -1,7 +1,7 @@
 (function() {
     $(document).ready((function(_this) {
         return function() {
-            $('.js-scroll-to .navbar-brand').click(function(e) {
+            $('.js-scroll-to').click(function(e) {
                 var $offsetTop, target;
                 target = $(this).attr('href');
                 $offsetTop = $(target).offset().top - $('.js-scroll-to').outerHeight() - 10;

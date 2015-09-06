@@ -1,0 +1,13 @@
+extends layout
+block content
+   h1= articleOne.title
+   p Дата обновления #{articleDate}
+   br
+   !=articleOne.description
+
+   div.well.edit-control.clearfix
+
+      form(action='/articles/#{articleOne._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+         input(type='hidden',value='DELETE',name='_method')
+         button(type='submit').btn.btn-default.right Удалить статью
+      a(href="/articles/#{articleOne._id}/edit").btn.btn-default.right Редактировать

@@ -1,0 +1,21 @@
+extends layout
+block content
+   div.panel.panel-primary
+      div.panel-heading
+         h1.panel-title= article.title
+      div.panel-body
+         form(action='/articles/#{article._id}/edit',method='post',name='updateartile',enctype='application/x-www-form-urlencoded').form-horizontal
+            .form-group
+               label.col-sm-2.control-label(for='title-articles') Название статьи
+               .col-sm-10
+                  input#title-articles.form-control(type='text', placeholder='title' name="titleArticles" required="" value="#{article.title}")
+            .form-group
+               label.col-sm-2.control-label(for='title-articles') Описание статьи
+               .col-sm-10
+                  textarea#description-articles.form-control(placeholder='description' name="descriptionArticles" required="" )!=article.description
+
+            .form-group
+               .col-sm-offset-2.col-sm-10.clearfix
+                  input(type='hidden',value='PUT',name='_method')
+                  button.btn.btn-info.right(type='submit') Обновить статью
+

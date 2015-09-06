@@ -1,0 +1,19 @@
+-var returnLengh = function truncate(str, maxlength) {
+   -if (str.length > maxlength) {
+      -return str.slice(0, maxlength - 3) + '...';
+   -}
+   -return str;
+-}
+div.list-articles
+   div.list-articles-ctn
+      -each article in articles
+         div.list-articles-item.thumbnail.clearfix
+            a(href="/articles/#{article._id}")
+               h3!= article.title
+            -var date = article.created.toISOString();
+            p= date.substring(0, date.indexOf('T'))
+            p!= returnLengh(article.description, 170)
+            a(href="/articles/#{article._id}").right.btn.btn-success Подробнее
+
+
+

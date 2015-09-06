@@ -2,8 +2,13 @@ var mongoose = require('mongoose');
 
 
 // this schema can be reused in another schema
-var userSchema = new mongoose.Schema({
-    email:   {
+var articleSchema = new mongoose.Schema({
+    title:   {
+        type:     String,
+        required: true,
+        unique:   true
+    },
+    description:   {
         type:     String,
         required: true,
         unique:   true
@@ -14,4 +19,4 @@ var userSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Article', articleSchema);

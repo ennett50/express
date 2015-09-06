@@ -1,0 +1,12 @@
+div#add-articles
+   h2 Добавить статью
+   form.form.form-add-article(method="POST")
+      .form-group
+         label.control-label(for='title-articles') Название статьи
+         input#title-articles.form-control(type='text', placeholder='title' name="titleArticles" required="")
+      .form-group
+         label.control-label(for='title-articles') Описание статьи
+         textarea#description-articles.form-control(placeholder='description' name="descriptionArticles" required="")
+
+      .form-group.clearfix
+         button.btn.btn-info(type='submit').right Добавить статью

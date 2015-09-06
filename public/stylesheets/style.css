@@ -2,7 +2,7 @@
 /* layout
 ========================================================================== */
 body {
-  padding-top: 50px;
+  padding-top: 80px;
   position: relative;
   min-height: 100%;
   box-sizing: padding-box;
@@ -61,4 +61,55 @@ a:hover {
 .navbar-inverse .navbar-brand:focus {
   text-decoration: underline;
   color: #9d9d9d;
+}
+.navbar-brand,
+img {
+  max-height: 100%;
+}
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+textarea.form-control {
+  height: 235px;
+}
+.navbar-brand.right {
+  float: right;
+}
+.btn {
+  text-decoration: none;
+}
+.form-add-article {
+  width: 850px;
+}
+.list-articles {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 80px;
+  padding-top: 40px;
+}
+.list-articles-ctn {
+  margin-right: -40px;
+}
+.list-articles-item {
+  width: 362px;
+  margin: 0 40px 40px 0;
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px;
+  box-sizing: padding-box;
+  box-sizing: border-box;
+}
+.list-articles .btn {
+  margin-top: 10px;
+}
+.edit-control {
+  position: relative;
+  padding: 15px;
+  margin: 55px 0 40px;
+}
+.edit-control .btn {
+  margin-right: 20px;
 }
