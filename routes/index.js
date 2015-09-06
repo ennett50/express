@@ -41,6 +41,30 @@ router.get('/', function (req, res, next) {
         }
     );
 });
+router.get('/articles/', function (req, res, next) {
+    mongoose.model('Article').find({}, function (err, articles) {
+            if (err) {
+                return console.error(err);
+            } else {
+                res.format({
+
+                    //HTML response will render the index.jade file in the views/blobs folder. We are also setting "articles" to be an accessible variable in our jade view
+                    html: function () {
+                        res.render('articles-list', {
+                            title: 'Список статей',
+                            "articles": articles
+
+                        });
+                    },
+                    //JSON response will show all blobs in JSON format
+                    json: function () {
+                        res.json(articles);
+                    }
+                });
+            }
+        }
+    );
+});
 router.post('/', function (req, res, next) {
     //console.log('--------------------------' + JSON.stringify(req.body));
 
@@ -100,6 +124,7 @@ router.param('id', function (req, res, next, id) {
 
 router.route('/articles/:id')
     .get(function (req, res) {
+        var pathname = url.parse(req.url).pathname;
         mongoose.model('Article').findById(req.id, function (err, article) {
             if (err) {
                 console.log('GET Error: There was a problem retrieving: ' + err);
@@ -112,7 +137,8 @@ router.route('/articles/:id')
                         res.render('one-article', {
                             "title": article.title,
                             "articleDate": articles,
-                            "articleOne": article
+                            "articleOne": article,
+                            "pathnameArticles" : pathname.substring(0,10)
                         });
                     },
                     json: function () {

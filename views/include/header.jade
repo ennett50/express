@@ -9,7 +9,11 @@ header.navbar.navbar-inverse.navbar-fixed-top.js-scroll-to(role='navigation')
 		-if ( pathname == '/')
 			a(href="#add-articles").navbar-brand.right.js-scroll-to Добавить статью
 		-else
-		a(href="/").navbar-brand На главную
+			a(href="/").navbar-brand На главную
+
+
+		-if (pathnameArticles == '/articles/')
+			a(href="/articles/").navbar-brand.right Список статей
 
 
 	//-.container
