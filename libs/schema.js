@@ -16,6 +16,10 @@ var articleSchema = new mongoose.Schema({
     created: {
         type:    Date,
         default: Date.now
+    },
+    numberSort : {
+        type: Number,
+        default : Date.now()
     }
 });
 

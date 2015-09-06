@@ -191,7 +191,8 @@ router.put('/articles/:id/edit', function(req, res) {
         article.update({
             title : title,
             description : description,
-            created: new Date
+            created: new Date,
+            numberSort : Date.now()
 
         }, function (err, articleID) {
             if (err) {
