@@ -165,7 +165,7 @@ router.get('/articles/:id/edit', function (req, res) {
                 //HTML response will render the 'edit.jade' template
                 html: function () {
                     res.render('edit-articles', {
-                        title: 'Редактирвоание статьи  ' + article.title,
+                        title: 'Р РµРґР°РєС‚РёСЂРІРѕР°РЅРёРµ СЃС‚Р°С‚СЊРё  ' + article.title,
                         "date": date,
                         "article": article
                     });

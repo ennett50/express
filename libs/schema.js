@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-
-// this schema can be reused in another schema
 var articleSchema = new mongoose.Schema({
     title:   {
         type:     String,
