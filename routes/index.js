@@ -4,6 +4,8 @@ var methodOverride = require('method-override');
 var mongoose = require('../libs/mongoose');
 var Article = require('../libs/schema');
 var url = require("url");
+var articlesList = require('./modules/articles-list.js');
+var getPostArticles = require('./modules/get-post-articles.js');
 
 
 
@@ -16,82 +18,13 @@ router.use(methodOverride(function(req, res){
     }
 }));
 
-router.get('/', function (req, res, next) {
-    var pathname = url.parse(req.url).pathname;
-    mongoose.model('Article').find({}, function (err, articles) {
-            if (err) {
-                return console.error(err);
-            } else {
-                res.format({
+router.get('/', articlesList);
 
-                    //HTML response will render the index.jade file in the views/blobs folder. We are also setting "articles" to be an accessible variable in our jade view
-                    html: function () {
-                        res.render('index', {
-                            title: 'Документация для дизайнеров',
-                            "articles": articles,
-                            "pathname" : pathname
-                        });
-                    },
-                    //JSON response will show all blobs in JSON format
-                    json: function () {
-                        res.json(articles);
-                    }
-                });
-            }
-        }
-    );
-});
-router.get('/articles/', function (req, res, next) {
-    mongoose.model('Article').find({}, function (err, articles) {
-            if (err) {
-                return console.error(err);
-            } else {
-                res.format({
+router.get('/articles/', articlesList);
 
-                    //HTML response will render the index.jade file in the views/blobs folder. We are also setting "articles" to be an accessible variable in our jade view
-                    html: function () {
-                        res.render('articles-list', {
-                            title: 'Список статей',
-                            "articles": articles
+router.post('/', getPostArticles);
 
-                        });
-                    },
-                    //JSON response will show all blobs in JSON format
-                    json: function () {
-                        res.json(articles);
-                    }
-                });
-            }
-        }
-    );
-});
-router.post('/', function (req, res, next) {
-    //console.log('--------------------------' + JSON.stringify(req.body));
 
-    var title = req.body.titleArticles,
-        description = req.body.descriptionArticles;
-
-    mongoose.model('Article').create({
-        title: title,
-        description: description
-    }, function (err, article) {
-        if (err) {
-            console.log(err);
-            res.send('There was a problem adding the information to the database.')
-        } else {
-           // console.log('POST creating new article: ' + article);
-            res.format({
-                html: function () {
-                    res.redirect('/');
-                },
-                json: function () {
-                    res.json(article);
-                }
-            });
-            //mongoose.disconnect();
-        }
-    });
-});
 
 
 router.param('id', function (req, res, next, id) {
