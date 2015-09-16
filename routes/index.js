@@ -65,14 +65,61 @@ router.get('/articles/', function (req, res, next) {
         }
     );
 });
+router.get('/gui/', function (req, res, next) {
+    mongoose.model('Article').find({}, function (err, articles) {
+            if (err) {
+                return console.error(err);
+            } else {
+                res.format({
+
+                    //HTML response will render the index.jade file in the views/blobs folder. We are also setting "articles" to be an accessible variable in our jade view
+                    html: function () {
+                        res.render('gui', {
+                            title: 'GUI elements'
+                        });
+                    },
+                    //JSON response will show all blobs in JSON format
+                    json: function () {
+                        res.json(articles);
+                    }
+                });
+            }
+        }
+    );
+});
+router.get('/components/', function (req, res, next) {
+    mongoose.model('Article').find({}, function (err, articles) {
+            if (err) {
+                return console.error(err);
+            } else {
+                res.format({
+
+                    //HTML response will render the index.jade file in the views/blobs folder. We are also setting "articles" to be an accessible variable in our jade view
+                    html: function () {
+                        res.render('gui', {
+                            title: 'Components'
+                        });
+                    },
+                    //JSON response will show all blobs in JSON format
+                    json: function () {
+                        res.json(articles);
+                    }
+                });
+            }
+        }
+    );
+});
 router.post('/', function (req, res, next) {
     //console.log('--------------------------' + JSON.stringify(req.body));
 
     var title = req.body.titleArticles,
+        previewText = req.body.previewText,
         description = req.body.descriptionArticles;
+
 
     mongoose.model('Article').create({
         title: title,
+        previewText: previewText,
         description: description
     }, function (err, article) {
         if (err) {
@@ -183,6 +230,7 @@ router.get('/articles/:id/edit', function (req, res) {
 router.put('/articles/:id/edit', function(req, res) {
     // Get our REST or form values. These rely on the "name" attributes
     var title = req.body.titleArticles,
+        previewText = req.body.previewText,
         description = req.body.descriptionArticles;
 
     //find the document by ID
@@ -190,6 +238,7 @@ router.put('/articles/:id/edit', function(req, res) {
         //update it
         article.update({
             title : title,
+            previewText: previewText,
             description : description,
             created: new Date,
             numberSort : Date.now()
@@ -199,6 +248,7 @@ router.put('/articles/:id/edit', function(req, res) {
                 res.send("There was a problem updating the information to the database: " + err);
             }
             else {
+
                 //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
                 res.format({
                     html: function(){

@@ -8,9 +8,12 @@ var articleSchema = new mongoose.Schema({
         required: true,
         unique:   true
     },
+    previewText : {
+        type:     String,
+        unique:   true
+    },
     description:   {
         type:     String,
-        required: true,
         unique:   true
     },
     created: {

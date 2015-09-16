@@ -4,9 +4,15 @@ div#add-articles
       .form-group
          label.control-label(for='title-articles') Название статьи
          input#title-articles.form-control(type='text', placeholder='title' name="titleArticles" required="")
+
+      .form-group
+         label.control-label(for='previewText') Описание статьи
+         input#previewText.form-control(type='text', placeholder='preview' name="previewText" )
+
+
       .form-group
          label.control-label(for='title-articles') Описание статьи
-         textarea#description-articles.form-control(placeholder='description' name="descriptionArticles" required="")
+         textarea#description-articles.form-control.js-wysihtml5(placeholder='description' name="descriptionArticles" required="")
 
       .form-group.clearfix
          button.btn.btn-info(type='submit').right Добавить статью

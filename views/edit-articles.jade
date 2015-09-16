@@ -10,9 +10,13 @@ block content
                .col-sm-10
                   input#title-articles.form-control(type='text', placeholder='title' name="titleArticles" required="" value="#{article.title}")
             .form-group
+               label.col-sm-2.control-label(for='previewText') Описание статьи
+               .col-sm-10
+                  input#previewText.form-control(type='text', placeholder='preview' name="previewText" )
+            .form-group
                label.col-sm-2.control-label(for='title-articles') Описание статьи
                .col-sm-10
-                  textarea#description-articles.form-control(placeholder='description' name="descriptionArticles" required="" )!=article.description
+                  textarea.js-wysihtml5#description-articles.form-control(placeholder='description' name="descriptionArticles" required="" )!=article.description
 
             .form-group
                .col-sm-offset-2.col-sm-10.clearfix
