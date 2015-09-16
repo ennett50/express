@@ -4,9 +4,6 @@ mongoose.set('debug', true);
 
 mongoose.connect('mongodb://admin:qwerty@localhost/documentation', {
     server: {
-        socketOptions: {
-            keepAlive: 1
-        },
         poolSize: 5
     }
 });
